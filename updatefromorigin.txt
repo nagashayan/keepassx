@@ -1,0 +1,23 @@
+#github help to sync with original repo
+https://help.github.com/articles/syncing-a-fork/
+
+
+git remote -v #check if upstream is linked to original repo link
+#if not linked then
+git remote add upstream https://github.com/keepassx/keepassx.git
+#fetch latest updates from upstream
+git fetch upstream
+#it will be stored in special branches in our local repo to see that type
+git branch -va
+#goto master branch
+git checkout master
+#Stash the changes of your "master" branch:
+git stash
+#merge changes
+git merge upstream/master
+#Resolve merge conflicts if any and commit your merge
+git commit -am "Merged from upstream"
+#Push the changes to your fork
+git push
+#Get back your stashed changes (if any)
+git stash pop
